@@ -36,11 +36,41 @@ Step 5: **Security Foundation
 The security of RSA relies on the difficulty of factoring large numbers; thus, choosing sufficiently large prime numbers for \( p \) and \( q \) is crucial for security.
 
 ## Program:
+```
+#include <stdio.h>
 
+int main()
+{
+    int p = 3, q = 11;
+    int n, phi, e = 3, d = 7;
+    int msg = 5, encrypted, decrypted;
 
+    n = p * q;
+    phi = (p - 1) * (q - 1);
 
+    printf("Developer: POOJA\n");
+    printf("Original message: %d\n", msg);
 
+    encrypted = 1;
+    for (int i = 0; i < e; i++)
+        encrypted = (encrypted * msg) % n;
+
+    decrypted = 1;
+    for (int i = 0; i < d; i++)
+        decrypted = (decrypted * encrypted) % n;
+
+    printf("Public Key: (%d, %d)\n", e, n);
+    printf("Private Key: (%d, %d)\n", d, n);
+    printf("Encrypted message: %d\n", encrypted);
+    printf("Decrypted message: %d\n", decrypted);
+
+    return 0;
+}
+```
 ## Output:
+<img width="440" height="312" alt="Crypto9_output png" src="https://github.com/user-attachments/assets/c35f0c59-9640-48ea-8cca-90d6aa6f15a8" />
+
+
 
 
 
